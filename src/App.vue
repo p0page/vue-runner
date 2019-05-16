@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <codemirror
+      ref="editor"
+      class="editor"
+      v-model="code"
+      :options="options"
+    />
+    <runner class="runner" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { codemirror } from 'vue-codemirror-lite'
+import 'codemirror/mode/vue/vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    codemirror
+  },
+  data () {
+    return {
+      // eslint-disable-next-line no-useless-escape
+      code: '<template>\n\t<div>{{ msg }}</div>\n</template>\n\n<script>\nexport default {\n\tdata () {\n\t\treturn {\n\t\t\tmsg: \'Hello Runner\'\n\t\t}\n\t}\n}\n<\/script>\n\n<style>\n\n</style>',
+      options: {
+        mode: 'vue',
+        tabSize: 2,
+        lineNumbers: true,
+        lineWrapping: true,
+        extraKeys: { 'Ctrl-Space': 'autocomplete' }
+      }
+    }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  .editor, .runner {
+    width: 50%;
+    float: left;
+  }
+  font-size: 14px;
 }
+
 </style>

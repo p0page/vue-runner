@@ -19,6 +19,10 @@ export default {
     code: {
       type: String,
       default: ''
+    },
+    mixin: {
+      type: [Object, Function],
+      default: () => {}
     }
   },
   data () {
@@ -33,6 +37,15 @@ export default {
   computed: {
     renderFunc () {
       return h => h(this.component)
+    },
+    _mixin () {
+      const { mixin } = this
+      if (typeof mixin === 'function') {
+        return mixin()
+      } else if (typeof mixin === 'object') {
+        return { ...mixin }
+      }
+      return {}
     }
   },
   mounted () {
@@ -82,7 +95,7 @@ export default {
     },
     makeComponent (script, template = '') {
       const options = new Function(script)()
-      this.component = Vue.extend({ ...options, template })
+      this.component = Vue.extend({ ...options, template, mixins: [this._mixin] })
     }
   }
 }

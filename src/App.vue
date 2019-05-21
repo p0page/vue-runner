@@ -9,6 +9,7 @@
     <runner
       class="runner"
       :code="code"
+      :mixin="mixinFunc"
     />
   </div>
 </template>
@@ -16,6 +17,7 @@
 <script>
 import { codemirror } from 'vue-codemirror-lite'
 import 'codemirror/mode/vue/vue'
+import Hello from './Hello'
 
 export default {
   name: 'app',
@@ -32,6 +34,20 @@ export default {
         lineNumbers: true,
         lineWrapping: true,
         extraKeys: { 'Ctrl-Space': 'autocomplete' }
+      }
+    }
+  },
+  methods: {
+    mixinFunc () {
+      return {
+        data () {
+          return {
+            name: 'Runner'
+          }
+        },
+        components: {
+          Hello
+        }
       }
     }
   }

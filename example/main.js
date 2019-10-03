@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import Runner from '../packages'
+// import Runner from '../src'
 import App from './App.vue'
 
-Vue.use(Runner)
+// Vue.use(Runner)
 
 Vue.config.productionTip = false
 

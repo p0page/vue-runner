@@ -1,6 +1,6 @@
 {
   "name": "vue-runner",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "main": "dist/vue-runner.umd.min.js",
   "scripts": {
     "dev": "vue-cli-service serve",

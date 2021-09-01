@@ -1,34 +1,10 @@
 # vue-runner
 
-## Project setup
-```
-npm install
-```
+## 简介
+直接在浏览器运行vue单文件组件
+[在线体验](https://azath0th.github.io/vue-runner/)
 
-### Compiles and hot-reloads for development
+## 安装
+```bash
+npm i -S another-vue-runner
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

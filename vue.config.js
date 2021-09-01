@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   runtimeCompiler: true,
   productionSourceMap: false,
@@ -15,5 +17,8 @@ module.exports = {
       config.externals({ 'vue': 'vue' })
         .end()
     }
-  }
+  },
+  publicPath: './',
+  outputDir: path.resolve(__dirname, './docs'),
+  assetsDir: 'static'
 }
